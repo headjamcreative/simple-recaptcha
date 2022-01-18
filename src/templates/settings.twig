@@ -1,0 +1,65 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * Simple Recaptcha plugin for Craft CMS 3.x
+ *
+ * Simple Recaptcha Settings.twig
+ *
+ * @author    Ben Norman
+ * @copyright Copyright (c) 2022 Ben Norman
+ * @link      https://www.headjam.com.au
+ * @package   SimpleRecaptcha
+ * @since     1.0.0
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{{
+  forms.autosuggestField({
+    label: 'Site key'|t('simpleRecaptcha'),
+    instructions: 'The Google reCAPTCHA V3 site key.'|t('simpleRecaptcha'),
+    id: 'siteKey',
+    name: 'siteKey',
+    value: settings['siteKey'],
+    required: true,
+    suggestEnvVars: true
+  })
+}}
+
+{{
+  forms.autosuggestField({
+    label: 'Secret key'|t('simpleRecaptcha'),
+    instructions: 'The Google reCAPTCHA V3 secret key.'|t('simpleRecaptcha'),
+    id: 'secretKey',
+    name: 'secretKey',
+    value: settings['secretKey'],
+    required: true,
+    suggestEnvVars: true
+  })
+}}
+
+{{
+  forms.textField({
+    label: 'Score threshold'|t('simpleRecaptcha'),
+    instructions: 'The score threshold at which a submission will be considered spam. 0.0 will allow all submissions, while 1.0 will prevent all submissions.'|t('simpleRecaptcha'),
+    type: 'number',
+    step: '.1',
+    min: '0.0',
+    max: '1.0',
+    id: 'scoreThreshold',
+    name: 'scoreThreshold',
+    value: settings['scoreThreshold'],
+    required: true
+  })
+}}
+
+{{
+  forms.lightswitchField({
+    label: 'Share user IP addresses with Google?'|t('simpleRecaptcha'),
+    instructions: 'If enabled, the user\'s IP addresses will be submitted to Google verifying the reCAPTCHA (https://developers.google.com/recaptcha/docs/verify#api_request).'|t('simpleRecaptcha'),
+    id: 'shareAddresses',
+    name: 'shareAddresses',
+    on: settings['shareAddresses']
+  })
+}}

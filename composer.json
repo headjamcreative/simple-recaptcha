@@ -1,0 +1,49 @@
+{
+    "name": "headjam/simple-recaptcha",
+    "description": "A Craft plugin that allows the addition of Google's reCAPTCHA v3 to any simple HTML form and verifies server-side.",
+    "type": "craft-plugin",
+    "version": "1.0.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "simple recaptcha"
+    ],
+    "support": {
+        "docs": "https://github.com/https://github.com/headjamcreative/simple-recaptcha/blob/master/README.md",
+        "issues": "https://github.com/https://github.com/headjamcreative/simple-recaptcha/issues"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ben Norman",
+            "homepage": "https://www.headjam.com.au"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.0.0"
+    },
+    "require-dev": {
+      "craftcms/cms": "^3.2.0",
+      "codeception/codeception": "^3.0",
+      "vlucas/phpdotenv": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+          "headjam\\simplerecaptcha\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Simple Recaptcha",
+        "handle": "simple-recaptcha",
+        "developer": "Ben Norman",
+        "developerUrl": "https://www.headjam.com.au",
+        "documentationUrl": "https://github.com/https://github.com/headjamcreative/simple-recaptcha/blob/master/README.md",
+        "changelogUrl": "https://raw.githubusercontent.com/https://github.com/headjamcreative/simple-recaptcha/master/CHANGELOG.md",
+        "components": {
+            "recaptcha": "headjam\\simplerecaptcha\\services\\Recaptcha"
+        },
+        "class": "headjam\\simplerecaptcha\\SimpleRecaptcha"
+    }
+}

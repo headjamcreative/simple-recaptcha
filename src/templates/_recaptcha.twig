@@ -1,0 +1,18 @@
+{{ actionInput('simple-recaptcha/recaptcha/verify-submission') }}
+{{ hiddenInput('verified-action', action) }}
+{{ hiddenInput('g-recaptcha-response') }}
+<script>
+  document.addEventListener('submit', event => {
+    event.preventDefault();
+    var captchaInput = event.target.querySelector('[name="g-recaptcha-response"]');
+    if (captchaInput) {
+      grecaptcha.ready(() => {
+        grecaptcha.execute('{{ sitekey }}', { action: '{{ captchaAction }}' }).then(token => {
+          captchaInput.value = token;
+          event.target.submit();
+        });
+      });
+    }
+    return;
+  }, false);
+</script>
