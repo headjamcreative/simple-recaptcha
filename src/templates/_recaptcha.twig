@@ -3,9 +3,9 @@
 {{ hiddenInput('g-recaptcha-response') }}
 <script>
   document.addEventListener('submit', event => {
-    event.preventDefault();
     var captchaInput = event.target.querySelector('[name="g-recaptcha-response"]');
     if (captchaInput) {
+      event.preventDefault();
       grecaptcha.ready(() => {
         grecaptcha.execute('{{ sitekey }}', { action: '{{ captchaAction }}' }).then(token => {
           captchaInput.value = token;
